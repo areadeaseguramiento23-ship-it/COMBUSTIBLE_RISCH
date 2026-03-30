@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Combustible - UE 0725</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;background:#0d1b2a;min-height:100vh;color:#1a2035}
+
+.bg{position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse at 20% 30%,rgba(46,117,182,.25) 0%,transparent 55%),
+             radial-gradient(ellipse at 80% 70%,rgba(55,86,35,.18) 0%,transparent 55%)}
+
+.wrap{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:24px 16px 48px}
+
+/* HEADER */
+.header{text-align:center;padding:32px 16px 24px}
+.header .ico{font-size:54px;margin-bottom:8px}
+.header h1{font-size:1.7rem;font-weight:900;color:#fff;line-height:1.2}
+.header p{color:rgba(255,255,255,.5);font-size:.82rem;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,217,102,.18);border:1px solid rgba(255,217,102,.4);
+  color:#FFD966;font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:20px;margin-top:8px;letter-spacing:1px}
+
+/* CARD */
+.card{background:rgba(255,255,255,.97);border-radius:20px;padding:24px;margin-bottom:16px;
+  box-shadow:0 16px 48px rgba(0,0,0,.3)}
+
+/* LOADING */
+.loading{text-align:center;padding:36px}
+.spin{width:40px;height:40px;border:4px solid #DDE3EC;border-top-color:#2E75B6;
+  border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}
+.loading p{color:#6b7a99;font-size:.9rem}
+
+/* BUSCADOR */
+.flbl{display:block;font-size:.68rem;font-weight:700;color:#6b7a99;
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.sbox{position:relative;margin-bottom:12px}
+.sbox input{width:100%;padding:14px 44px 14px 16px;border:2px solid #DDE3EC;
+  border-radius:14px;font-family:'Outfit',sans-serif;font-size:1rem;
+  color:#1a2035;transition:border-color .2s,box-shadow .2s;background:#fff}
+.sbox input:focus{outline:none;border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,.12)}
+.sico{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none}
+.sugs{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;
+  border:2px solid #DDE3EC;border-radius:14px;max-height:220px;overflow-y:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:100}
+.sug{padding:11px 16px;cursor:pointer;font-size:.9rem;border-bottom:1px solid #DDE3EC;transition:background .12s}
+.sug:last-child{border-bottom:none}
+.sug:hover,.sug.act{background:#F4F6F9}
+.sug strong{color:#2E75B6}
+.sug-no{padding:14px;color:#9aabcc;text-align:center;font-size:.85rem}
+
+/* BOTÓN */
+.btn{width:100%;padding:14px;background:linear-gradient(135deg,#1F3864,#2E75B6);
+  color:#fff;border:none;border-radius:14px;font-family:'Outfit',sans-serif;
+  font-size:1rem;font-weight:700;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;box-shadow:0 4px 16px rgba(31,56,100,.35)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(31,56,100,.45)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn.sec{background:linear-gradient(135deg,#374151,#6B7280);margin-top:10px}
+
+/* IPRESS HEADER */
+.ip-hdr{background:linear-gradient(135deg,#1F3864,#2E75B6);border-radius:16px;
+  padding:20px;color:#fff;margin-bottom:16px;text-align:center}
+.ip-hdr .nom{font-size:1.3rem;font-weight:900;margin-bottom:4px}
+.ip-hdr .sub{font-size:.78rem;opacity:.65}
+
+/* RESUMEN TOTALES */
+.totales{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.tot{border-radius:14px;padding:16px;text-align:center}
+.tot.pet{background:#DEEAF1;border:2px solid rgba(31,78,121,.2)}
+.tot.gas{background:#FCE4D6;border:2px solid rgba(132,60,12,.2)}
+.tot .tlbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.tot.pet .tlbl{color:#1F4E79}.tot.gas .tlbl{color:#843C0C}
+.tot .tnum{font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;line-height:1}
+.tot.pet .tnum{color:#1F4E79}.tot.gas .tnum{color:#843C0C}
+.tot .tsub{font-size:.72rem;color:#8899aa;margin-top:3px}
+
+/* TABLA POR MES */
+.sec-titulo{font-size:.7rem;font-weight:700;color:#6b7a99;text-transform:uppercase;
+  letter-spacing:.5px;margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.sec-titulo::after{content:'';flex:1;height:1px;background:#DDE3EC}
+
+.mes-card{border:2px solid #DDE3EC;border-radius:14px;overflow:hidden;margin-bottom:10px}
+.mes-hdr{background:#1F3864;color:#fff;padding:10px 16px;
+  display:flex;justify-content:space-between;align-items:center}
+.mes-hdr .mes-nom{font-weight:700;font-size:.95rem}
+.mes-hdr .mes-n{font-size:.75rem;opacity:.7}
+
+.mes-body{padding:0}
+.fila{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
+  padding:11px 16px;border-bottom:1px solid #DDE3EC;align-items:center}
+.fila:last-child{border-bottom:none}
+.fila:nth-child(even){background:#F9FAFB}
+.fila .fcol{text-align:center}
+.fila .fcol.left{text-align:left}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700}
+.tag-pet{background:#DEEAF1;color:#1F4E79}
+.tag-gas{background:#FCE4D6;color:#843C0C}
+.fila .fval{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.95rem;color:#1a2035}
+.fila .fsub{font-size:.65rem;color:#8899aa;margin-top:1px}
+
+.cab{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
+  padding:7px 16px;background:#F4F6F9;border-bottom:1px solid #DDE3EC}
+.cab span{text-align:center;font-size:.62rem;font-weight:700;color:#6b7a99;text-transform:uppercase;letter-spacing:.3px}
+.cab span:first-child{text-align:left}
+
+/* VACIO */
+.vacio{text-align:center;padding:36px 20px}
+.vacio .vi{font-size:42px;margin-bottom:10px}
+.vacio h3{color:#375623;font-size:1rem;margin-bottom:4px}
+.vacio p{color:#6b7a99;font-size:.82rem}
+
+/* ACTUALIZ */
+.actualiz{text-align:center;color:rgba(255,255,255,.35);font-size:.68rem;padding:10px;margin-top:4px}
+.footer{text-align:center;color:rgba(255,255,255,.25);font-size:.68rem;padding:14px}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.hidden{display:none!important}
+.anim{animation:fadeUp .4s ease both}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="ico">⛽</div>
+  <h1>Mi Combustible<br>Pendiente</h1>
+  <p>UE 0725 · Región Amazonas · SIS</p>
+  <div class="badge">SOLO LECTURA · CONDUCTORES</div>
+</div>
+
+<!-- LOADING -->
+<div class="card" id="card-load">
+  <div class="loading">
+    <div class="spin"></div>
+    <p id="msg-load">Cargando datos actualizados...</p>
+  </div>
+</div>
+
+<!-- BUSCADOR -->
+<div class="card hidden" id="card-buscar">
+  <span class="flbl">🏥 Selecciona tu IPRESS</span>
+  <div class="sbox">
+    <input type="text" id="inp"
+           placeholder="Escribe el nombre de tu IPRESS..."
+           autocomplete="off"
+           oninput="filtrar()"
+           onkeydown="tecla(event)">
+    <span class="sico">🔍</span>
+    <div class="sugs hidden" id="sugs"></div>
+  </div>
+  <button class="btn" id="btn-ver" onclick="ver()" disabled>
+    Ver mi combustible pendiente →
+  </button>
+</div>
+
+<!-- RESULTADO -->
+<div id="res" class="hidden anim">
+
+  <!-- Header IPRESS -->
+  <div class="ip-hdr">
+    <div class="nom" id="r-ipress">—</div>
+    <div class="sub" id="r-sub">Combustible pendiente de entrega</div>
+  </div>
+
+  <!-- Totales generales -->
+  <div class="totales">
+    <div class="tot pet">
+      <div class="tlbl">🛢 Petróleo total</div>
+      <div class="tnum" id="r-pgal">0.00</div>
+      <div class="tsub">galones</div>
+      <div class="tnum" style="font-size:1.1rem;margin-top:6px" id="r-psol">S/ 0.00</div>
+      <div class="tsub">soles</div>
+    </div>
+    <div class="tot gas">
+      <div class="tlbl">⛽ Gasolina total</div>
+      <div class="tnum" id="r-ggal">0.00</div>
+      <div class="tsub">galones</div>
+      <div class="tnum" style="font-size:1.1rem;margin-top:6px" id="r-gsol">S/ 0.00</div>
+      <div class="tsub">soles</div>
+    </div>
+  </div>
+
+  <!-- Detalle por mes -->
+  <div class="card" style="padding:20px">
+    <div class="sec-titulo">📅 Detalle por mes</div>
+
+    <div class="hidden vacio" id="sin-datos">
+      <div class="vi">✅</div>
+      <h3>¡Sin pendientes!</h3>
+      <p>No hay combustible pendiente de entrega para esta IPRESS.</p>
+    </div>
+
+    <div id="meses-container"></div>
+  </div>
+
+  <button class="btn sec" onclick="volver()">← Buscar otra IPRESS</button>
+</div>
+
+<div class="actualiz" id="actualiz"></div>
+<div class="footer">Sistema UE 0725 Amazonas · Datos en tiempo real</div>
+</div>
+
+<script>
+const CSV_URL = "https://api.allorigins.win/raw?url=" +
+  encodeURIComponent("https://docs.google.com/spreadsheets/d/e/2PACX-1vQpzgXG8njs_aPwTjL3hCLsslaH3MZOveCYEvs4BpkOqzQGRzIhRvXFXXZlP-H8BA/pub?gid=1916335910&single=true&output=csv");
+
+let DATOS = [], IPRESS = [], sel = null, idx = -1;
+
+// ── CARGAR DATOS ──────────────────────────────────────────────
+async function cargar() {
+  try {
+    const r = await fetch(CSV_URL, { cache: 'no-cache' });
+    if (!r.ok) throw new Error();
+    const txt = await r.text();
+    DATOS = parsear(txt);
+    const s = new Set();
+    DATOS.forEach(d => { if (d.ipress) s.add(d.ipress); });
+    IPRESS = [...s].sort();
+    document.getElementById('card-load').classList.add('hidden');
+    document.getElementById('card-buscar').classList.remove('hidden');
+    const n = new Date();
+    document.getElementById('actualiz').textContent =
+      `Actualizado: ${n.toLocaleDateString('es-PE')} ${n.toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})} · ${DATOS.length} registros`;
+  } catch {
+    document.getElementById('msg-load').textContent = '⚠ Error de conexión. Reintentando...';
+    setTimeout(cargar, 4000);
+  }
+}
+
+// ── PARSEAR CSV ───────────────────────────────────────────────
+function parsear(txt) {
+  const ls = txt.trim().split('\n');
+  const res = [];
+  for (let i = 1; i < ls.length; i++) {
+    const c = parsLin(ls[i]);
+    const ipress = (c[1]||'').trim();
+    const afil   = (c[2]||'').trim();
+    if (!ipress || !afil) continue;
+    res.push({
+      mes:    (c[0]||'').trim(),
+      ipress: ipress,
+      afil:   afil,
+      tipo:   (c[5]||'').trim().toUpperCase(),
+      gal:    parseFloat((c[6]||'0').replace(',','.')) || 0,
+      sol:    parseFloat((c[7]||'0').replace(',','.')) || 0,
+    });
+  }
+  return res;
+}
+
+function parsLin(l) {
+  const c = []; let cur = '', q = false;
+  for (let i = 0; i < l.length; i++) {
+    const ch = l[i];
+    if (ch === '"') { q = !q; continue; }
+    if (ch === ',' && !q) { c.push(cur); cur = ''; continue; }
+    cur += ch;
+  }
+  c.push(cur); return c;
+}
+
+// ── BUSCADOR ──────────────────────────────────────────────────
+function filtrar() {
+  const q = document.getElementById('inp').value.trim().toUpperCase();
+  const div = document.getElementById('sugs');
+  sel = null;
+  document.getElementById('btn-ver').disabled = true;
+  if (!q) { div.classList.add('hidden'); return; }
+  const found = IPRESS.filter(ip => ip.toUpperCase().includes(q));
+  idx = -1;
+  if (!found.length) {
+    div.innerHTML = '<div class="sug-no">No se encontró ninguna IPRESS</div>';
+    div.classList.remove('hidden'); return;
+  }
+  div.innerHTML = found.slice(0, 10).map(ip => {
+    const h = ip.replace(new RegExp(q, 'gi'), m => `<strong>${m}</strong>`);
+    return `<div class="sug" onclick="elegir('${ip.replace(/'/g,"\\'")}')">${h}</div>`;
+  }).join('');
+  div.classList.remove('hidden');
+}
+
+function elegir(ip) {
+  sel = ip;
+  document.getElementById('inp').value = ip;
+  document.getElementById('sugs').classList.add('hidden');
+  document.getElementById('btn-ver').disabled = false;
+}
+
+function tecla(e) {
+  const items = document.querySelectorAll('.sug');
+  if (e.key === 'ArrowDown') {
+    idx = Math.min(idx+1, items.length-1);
+    items.forEach((el,i) => el.classList.toggle('act', i===idx));
+  } else if (e.key === 'ArrowUp') {
+    idx = Math.max(idx-1, 0);
+    items.forEach((el,i) => el.classList.toggle('act', i===idx));
+  } else if (e.key === 'Enter') {
+    if (idx >= 0 && items[idx]) items[idx].click();
+  } else if (e.key === 'Escape') {
+    document.getElementById('sugs').classList.add('hidden');
+  }
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.sbox'))
+    document.getElementById('sugs').classList.add('hidden');
+});
+
+// ── MOSTRAR RESULTADO ─────────────────────────────────────────
+function ver() {
+  if (!sel) return;
+
+  const filas = DATOS.filter(d => d.ipress === sel);
+
+  // Totales generales
+  let pg = 0, ps = 0, gg = 0, gs = 0;
+  filas.forEach(d => {
+    if (d.tipo === 'PETROLEO') { pg += d.gal; ps += d.sol; }
+    else if (d.tipo === 'GASOLINA') { gg += d.gal; gs += d.sol; }
+  });
+
+  document.getElementById('r-ipress').textContent = sel;
+  document.getElementById('r-sub').textContent =
+    filas.length
+      ? `${filas.length} paciente${filas.length>1?'s':''} con combustible pendiente`
+      : 'Sin registros pendientes';
+
+  document.getElementById('r-pgal').textContent = f(pg);
+  document.getElementById('r-psol').textContent = 'S/ ' + f(ps);
+  document.getElementById('r-ggal').textContent = f(gg);
+  document.getElementById('r-gsol').textContent = 'S/ ' + f(gs);
+
+  // Agrupar por MES
+  const orden = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SET','OCT','NOV','DIC'];
+  const nombres = {
+    ENE:'Enero',FEB:'Febrero',MAR:'Marzo',ABR:'Abril',
+    MAY:'Mayo',JUN:'Junio',JUL:'Julio',AGO:'Agosto',
+    SET:'Setiembre',OCT:'Octubre',NOV:'Noviembre',DIC:'Diciembre'
+  };
+
+  // Agrupar: { MES: { PETROLEO: {gal,sol,n}, GASOLINA: {gal,sol,n} } }
+  const grupos = {};
+  filas.forEach(d => {
+    if (!grupos[d.mes]) grupos[d.mes] = {};
+    if (!grupos[d.mes][d.tipo]) grupos[d.mes][d.tipo] = { gal:0, sol:0, n:0 };
+    grupos[d.mes][d.tipo].gal += d.gal;
+    grupos[d.mes][d.tipo].sol += d.sol;
+    grupos[d.mes][d.tipo].n  += 1;
+  });
+
+  const mesesConDatos = Object.keys(grupos).sort((a,b) => {
+    const ia = orden.indexOf(a), ib = orden.indexOf(b);
+    return (ia<0?99:ia) - (ib<0?99:ib);
+  });
+
+  const cont = document.getElementById('meses-container');
+  const sinD = document.getElementById('sin-datos');
+
+  if (!mesesConDatos.length) {
+    sinD.classList.remove('hidden');
+    cont.innerHTML = '';
+  } else {
+    sinD.classList.add('hidden');
+    cont.innerHTML = mesesConDatos.map(mes => {
+      const g = grupos[mes];
+      const nomMes = nombres[mes] || mes;
+      const totalN = Object.values(g).reduce((s,v) => s+v.n, 0);
+
+      const filasPET = g['PETROLEO'] ? `
+        <div class="fila">
+          <div class="fcol left"><span class="tag tag-pet">Petróleo</span></div>
+          <div class="fcol"><div class="fval">${f(g['PETROLEO'].gal)}</div><div class="fsub">galones</div></div>
+          <div class="fcol"><div class="fval">S/ ${f(g['PETROLEO'].sol)}</div><div class="fsub">soles</div></div>
+          <div class="fcol"><div class="fval">${g['PETROLEO'].n}</div><div class="fsub">pacientes</div></div>
+        </div>` : '';
+
+      const filasGAS = g['GASOLINA'] ? `
+        <div class="fila">
+          <div class="fcol left"><span class="tag tag-gas">Gasolina</span></div>
+          <div class="fcol"><div class="fval">${f(g['GASOLINA'].gal)}</div><div class="fsub">galones</div></div>
+          <div class="fcol"><div class="fval">S/ ${f(g['GASOLINA'].sol)}</div><div class="fsub">soles</div></div>
+          <div class="fcol"><div class="fval">${g['GASOLINA'].n}</div><div class="fsub">pacientes</div></div>
+        </div>` : '';
+
+      return `
+        <div class="mes-card">
+          <div class="mes-hdr">
+            <span class="mes-nom">📅 ${nomMes} 2026</span>
+            <span class="mes-n">${totalN} paciente${totalN>1?'s':''}</span>
+          </div>
+          <div class="cab">
+            <span>Combustible</span><span>Galones</span><span>Total S/.</span><span>Pacientes</span>
+          </div>
+          <div class="mes-body">
+            ${filasPET}${filasGAS}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  document.getElementById('card-buscar').classList.add('hidden');
+  document.getElementById('res').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function volver() {
+  document.getElementById('res').classList.add('hidden');
+  document.getElementById('card-buscar').classList.remove('hidden');
+  document.getElementById('inp').value = '';
+  document.getElementById('btn-ver').disabled = true;
+  sel = null;
+}
+
+function f(n) {
+  return Number(n).toLocaleString('es-PE', { minimumFractionDigits:2, maximumFractionDigits:2 });
+}
+
+cargar();
+</script>
+</body>
+</html>
