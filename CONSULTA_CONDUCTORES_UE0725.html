@@ -209,17 +209,28 @@ body{font-family:'Outfit',sans-serif;background:#0d1b2a;min-height:100vh;color:#
 </div>
 
 <script>
-const CSV_URL = "https://api.allorigins.win/raw?url=" +
-  encodeURIComponent("https://docs.google.com/spreadsheets/d/e/2PACX-1vQpzgXG8njs_aPwTjL3hCLsslaH3MZOveCYEvs4BpkOqzQGRzIhRvXFXXZlP-H8BA/pub?gid=1916335910&single=true&output=csv");
+// URL directa a Google Sheets CSV — más rápido sin proxy
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQRAHmAMo4RQMMAzqkbsqTQbN5GrXrBn2OGr1WxGqL0lv7JGpvKaMTZL4rI__JszXZ6EiMbTOX1CETA/pub?gid=756902097&single=true&output=csv";
+// Proxy de respaldo si falla la URL directa
+const CSV_PROXY = "https://api.allorigins.win/raw?url=" + encodeURIComponent(CSV_URL);
 
 let DATOS = [], IPRESS = [], sel = null, idx = -1;
 
 // ── CARGAR DATOS ──────────────────────────────────────────────
 async function cargar() {
   try {
-    const r = await fetch(CSV_URL, { cache: 'no-cache' });
-    if (!r.ok) throw new Error();
-    const txt = await r.text();
+    // Intentar URL directa primero (más rápido)
+    let txt = '';
+    try {
+      const r1 = await fetch(CSV_URL, { cache: 'no-cache', mode: 'cors' });
+      if (r1.ok) txt = await r1.text();
+      else throw new Error();
+    } catch {
+      // Usar proxy como respaldo
+      const r2 = await fetch(CSV_PROXY, { cache: 'no-cache' });
+      if (!r2.ok) throw new Error();
+      txt = await r2.text();
+    }
     DATOS = parsear(txt);
     const s = new Set();
     DATOS.forEach(d => { if (d.ipress) s.add(d.ipress); });
