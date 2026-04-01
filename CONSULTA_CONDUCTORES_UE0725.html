@@ -131,7 +131,7 @@ body{font-family:'Outfit',sans-serif;background:#0d1b2a;min-height:100vh;color:#
 <!-- HEADER -->
 <div class="header">
   <div class="ico">⛽</div>
-  <h1>Mi Combustible<br>Pendiente</h1>
+  <h1>MI COMBUSTIBLE<br>PENDIENTE</h1>
   <p>UE 0725 · Región Amazonas · SIS</p>
   <div class="badge">SOLO LECTURA · CONDUCTORES</div>
 </div>
@@ -231,7 +231,17 @@ async function cargar() {
       txt = await r2.text();
     }
     DATOS = parsear(txt);
-    const s = new Set();
+    // Lista fija de todas las IPRESS con ambulancia UE 0725
+    const IPRESS_AMBULANCIA = [
+      "BUENOS AIRES","CAMPORREDONDO","CHUQUIBAMBA","COCABAMBA","COCOCHO",
+      "COLCAMAR","COLLONCE","HUAMBO","JALCA GRANDE","JUMBILLA","LAMUD",
+      "LEYMEBAMBA","LUYA","MARIA","MARIA AUXILIADORA","MARISCAL BENAVIDES",
+      "MOLINOPAMPA","NUEVO CHIRIMOTO","OCALLI","OMIA","PEDRO RUIZ GALLO",
+      "POMACOCHAS","SALAZAR","SANTO TOMAS","TINGO","TOTORA","YAMBRASBAMBA",
+      "YERBABUENA","ZARUMILLA"
+    ];
+    // Unir con las que tienen pendientes (por si hay devoluciones a otras)
+    const s = new Set(IPRESS_AMBULANCIA);
     DATOS.forEach(d => { if (d.ipress) s.add(d.ipress); });
     IPRESS = [...s].sort();
     document.getElementById('card-load').classList.add('hidden');
@@ -341,7 +351,7 @@ function ver() {
   document.getElementById('r-sub').textContent =
     filas.length
       ? `${filas.length} paciente${filas.length>1?'s':''} con combustible pendiente`
-      : 'Sin registros pendientes';
+      : 'ESTA IPRESS NO CUENTA CON COMBUSTIBLE POR RECOGER';
 
   document.getElementById('r-pgal').textContent = f(pg);
   document.getElementById('r-psol').textContent = 'S/ ' + f(ps);
