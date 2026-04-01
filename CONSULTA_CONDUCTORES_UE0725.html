@@ -209,7 +209,7 @@ body{font-family:'Outfit',sans-serif;background:#0d1b2a;min-height:100vh;color:#
 
 <script>
 // URL directa a Google Sheets CSV — más rápido sin proxy
-const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSYx9azcCREvxme2322CsHY-oV8WucRSAsqE2YOEtxM5g1uV4cGOSm66KvM6hV5pc2t4WROk9mDpqhL/pub?gid=466876380&single=true&output=csv";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR66LhdJB0U1CGMLktKPcPEJMl3b7aurY9q5S80LgJTqCmYgcWci4lF1TQMkaUdaYHaAr5IjoJZjfzO/pub?gid=2115848122&single=true&output=csv";
 // Proxy de respaldo si falla la URL directa
 const CSV_PROXY = "https://api.allorigins.win/raw?url=" + encodeURIComponent(CSV_URL);
 
@@ -231,8 +231,8 @@ async function cargar() {
       txt = await r2.text();
     }
     DATOS = parsear(txt);
-    // Lista fija de todas las IPRESS con ambulancia UE 0725
-    const IPRESS_AMBULANCIA = [
+    // Solo las IPRESS con ambulancia UE 0725 — lista fija
+    IPRESS = [
       "BUENOS AIRES","CAMPORREDONDO","CHUQUIBAMBA","COCABAMBA","COCOCHO",
       "COLCAMAR","COLLONCE","HUAMBO","JALCA GRANDE","JUMBILLA","LAMUD",
       "LEYMEBAMBA","LUYA","MARIA","MARIA AUXILIADORA","MARISCAL BENAVIDES",
@@ -240,10 +240,6 @@ async function cargar() {
       "POMACOCHAS","SALAZAR","SANTO TOMAS","TINGO","TOTORA","YAMBRASBAMBA",
       "YERBABUENA","ZARUMILLA"
     ];
-    // Unir con las que tienen pendientes (por si hay devoluciones a otras)
-    const s = new Set(IPRESS_AMBULANCIA);
-    DATOS.forEach(d => { if (d.ipress) s.add(d.ipress); });
-    IPRESS = [...s].sort();
     document.getElementById('card-load').classList.add('hidden');
     document.getElementById('card-buscar').classList.remove('hidden');
     const n = new Date();
