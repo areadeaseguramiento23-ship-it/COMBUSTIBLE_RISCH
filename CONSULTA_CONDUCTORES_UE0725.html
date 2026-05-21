@@ -10,7 +10,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#1a2035}
 
-/* Fondo institucional - verde RIS + azul marino salud */
 .bg{position:fixed;inset:0;z-index:0;
   background:
     radial-gradient(ellipse at 15% 25%,rgba(27,107,79,.28) 0%,transparent 55%),
@@ -19,7 +18,6 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 
 .wrap{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:20px 14px 48px}
 
-/* HEADER con LOGOS */
 .header{padding:24px 12px 22px;text-align:center}
 .logos{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:18px;
   background:rgba(255,255,255,.97);border-radius:18px;padding:14px 20px;
@@ -39,11 +37,9 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
   color:#86E8B8;font-size:.65rem;font-weight:700;padding:4px 12px;border-radius:20px;
   margin-top:10px;letter-spacing:1px;text-transform:uppercase}
 
-/* CARD */
 .card{background:rgba(255,255,255,.98);border-radius:18px;padding:22px;margin-bottom:14px;
   box-shadow:0 12px 36px rgba(0,0,0,.28)}
 
-/* BUSCADOR */
 .flbl{display:block;font-size:.66rem;font-weight:700;color:#1B6B4F;
   text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .sbox{position:relative;margin-bottom:12px}
@@ -61,7 +57,6 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 .sug strong{color:#1B6B4F}
 .sug-no{padding:14px;color:#9aabcc;text-align:center;font-size:.85rem}
 
-/* BOTÓN */
 .btn{width:100%;padding:14px;background:linear-gradient(135deg,#1F3864,#2E5085);
   color:#fff;border:none;border-radius:13px;font-family:'Outfit',sans-serif;
   font-size:1rem;font-weight:700;cursor:pointer;
@@ -72,21 +67,18 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 .btn.sec{background:linear-gradient(135deg,#1B6B4F,#2A8A6A);margin-top:10px;
   box-shadow:0 4px 14px rgba(27,107,79,.4)}
 
-/* IPRESS HEADER */
 .ip-hdr{background:linear-gradient(135deg,#1F3864 0%,#1B6B4F 100%);
   border-radius:16px;padding:22px;color:#fff;margin-bottom:14px;text-align:center;
   box-shadow:0 10px 28px rgba(0,0,0,.3)}
 .ip-hdr .nom{font-size:1.4rem;font-weight:900;margin-bottom:5px;letter-spacing:.5px}
 .ip-hdr .sub{font-size:.78rem;opacity:.78}
 
-/* TABS AÑO */
 .tabs{display:flex;background:#F0F4F8;border-radius:11px;padding:4px;margin-bottom:14px;
   border:1px solid #E2E8F0}
 .tab{flex:1;padding:9px;text-align:center;font-weight:700;font-size:.85rem;
   color:#6b7a99;cursor:pointer;border-radius:8px;transition:all .18s;letter-spacing:.5px}
 .tab.act{background:#1F3864;color:#fff;box-shadow:0 3px 10px rgba(31,56,100,.32)}
 
-/* RESUMEN: tarjetas RECOGIDO / POR RECOGER */
 .resum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .rcard{border-radius:14px;padding:16px;text-align:center;position:relative;overflow:hidden}
 .rcard.rec{background:linear-gradient(135deg,#E8F5E9 0%,#D7EBD9 100%);
@@ -100,7 +92,6 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 .rcard.rec .rnum{color:#1B6B4F}.rcard.pen .rnum{color:#C76600}
 .rcard .rsub{font-size:.7rem;color:#8899aa;margin-top:3px}
 
-/* SECCIÓN TIPO COMBUSTIBLE */
 .tipo-box{margin-bottom:14px;border-radius:14px;overflow:hidden;
   border:2px solid #DDE3EC;background:#fff}
 .tipo-hdr{padding:13px 18px;display:flex;justify-content:space-between;align-items:center;
@@ -110,7 +101,6 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 .tipo-hdr .ttit{font-weight:800;font-size:.95rem;letter-spacing:.5px}
 .tipo-hdr .ttot{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.05rem}
 
-/* SUBSECCIÓN */
 .subsec{padding:12px 16px;border-top:1px solid #EEF2F7}
 .subsec:first-child{border-top:none}
 .subsec .stit{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;
@@ -131,13 +121,25 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 
 .empty-sec{padding:14px;text-align:center;color:#9aabcc;font-size:.82rem;font-style:italic}
 
-/* VACÍO */
 .vacio{text-align:center;padding:40px 20px}
 .vacio .vi{font-size:54px;margin-bottom:12px}
 .vacio h3{color:#1B6B4F;font-size:1.05rem;margin-bottom:6px;font-weight:800}
 .vacio p{color:#6b7a99;font-size:.85rem;line-height:1.45}
 
-/* FOOTER */
+/* LOADING */
+.loading-card{background:rgba(255,255,255,.98);border-radius:18px;padding:34px 22px;
+  margin-bottom:14px;box-shadow:0 12px 36px rgba(0,0,0,.28);text-align:center}
+.spinner{width:46px;height:46px;border:4px solid #E2E8F0;border-top-color:#1F3864;
+  border-radius:50%;margin:0 auto 16px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-card .ltxt{color:#1F3864;font-weight:700;font-size:1rem}
+.loading-card .lsub{color:#6b7a99;font-size:.82rem;margin-top:4px}
+.error-card{background:#FFF4F4;border:2px solid #FFCCCC;border-radius:14px;padding:18px;
+  margin-bottom:14px;color:#c00;font-size:.88rem;text-align:center}
+.error-card .eico{font-size:32px;margin-bottom:6px}
+.error-card button{margin-top:10px;padding:8px 16px;background:#1F3864;color:#fff;
+  border:none;border-radius:8px;cursor:pointer;font-weight:700;font-family:inherit}
+
 .actualiz{text-align:center;color:rgba(255,255,255,.4);font-size:.7rem;padding:10px;margin-top:6px}
 .footer{text-align:center;color:rgba(255,255,255,.32);font-size:.7rem;padding:14px;line-height:1.5}
 .footer strong{color:rgba(255,255,255,.55)}
@@ -151,7 +153,6 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 <div class="bg"></div>
 <div class="wrap">
 
-<!-- HEADER -->
 <div class="header">
   <div class="logos">
     <img class="logo-img" src="data:image/jpeg;base64,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" alt="Red Integrada de Salud Chachapoyas">
@@ -167,8 +168,22 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
   <div class="badge">CONSULTA POR ESTABLECIMIENTO</div>
 </div>
 
+<!-- LOADING -->
+<div class="loading-card" id="loading">
+  <div class="spinner"></div>
+  <div class="ltxt">Cargando datos...</div>
+  <div class="lsub">Conectando con Google Sheets</div>
+</div>
+
+<!-- ERROR -->
+<div class="error-card hidden" id="error">
+  <div class="eico">⚠️</div>
+  <div id="error-msg">No se pudieron cargar los datos.</div>
+  <button onclick="cargar()">🔄 Reintentar</button>
+</div>
+
 <!-- BUSCADOR -->
-<div class="card" id="card-buscar">
+<div class="card hidden" id="card-buscar">
   <span class="flbl">🏥 Selecciona tu establecimiento</span>
   <div class="sbox">
     <input type="text" id="inp"
@@ -184,21 +199,15 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
   </button>
 </div>
 
-<!-- RESULTADO -->
 <div id="res" class="hidden anim">
-
   <div class="ip-hdr">
     <div class="nom" id="r-ipress">—</div>
     <div class="sub">Detalle de combustible · UE 0725</div>
   </div>
-
-  <!-- Tabs año -->
   <div class="tabs">
     <div class="tab act" data-year="2026" onclick="changeYear(2026)">📅 ESTE AÑO (2026)</div>
     <div class="tab" data-year="2025" onclick="changeYear(2025)">📊 AÑO PASADO (2025)</div>
   </div>
-
-  <!-- Resumen recogido vs pendiente -->
   <div class="resum">
     <div class="rcard rec">
       <div class="ricon">✅</div>
@@ -213,21 +222,16 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
       <div class="rsub">sin oficio</div>
     </div>
   </div>
-
-  <!-- Detalle -->
   <div id="detalle"></div>
-
-  <!-- Sin datos -->
   <div class="hidden vacio" id="sin-datos">
     <div class="vi">✅</div>
     <h3>SIN MOVIMIENTOS</h3>
     <p>Este establecimiento no tiene<br>combustible registrado para este año</p>
   </div>
-
   <button class="btn sec" onclick="volver()">← Buscar otro establecimiento</button>
 </div>
 
-<div class="actualiz" id="actualiz">Datos cargados al 21/05/2026</div>
+<div class="actualiz" id="actualiz">—</div>
 <div class="footer">
   <strong>Red Integrada de Salud Chachapoyas · UE 0725</strong><br>
   Sistema de control de combustible
@@ -235,10 +239,8 @@ body{font-family:'Outfit',sans-serif;background:#0a1929;min-height:100vh;color:#
 </div>
 
 <script>
-const DATA = {"BUENOS AIRES":{"2025":{"rec_pet":0,"rec_gas":247.0,"pen_pet":0,"pen_gas":0,"meses_rec":{"FEB":{"pet":0,"gas":25.0},"MAR":{"pet":0,"gas":50.0},"ABR":{"pet":0,"gas":20.0},"MAY":{"pet":0,"gas":50.0},"JUN":{"pet":0,"gas":32.0},"JUL":{"pet":0,"gas":50.0},"AGO":{"pet":0,"gas":20.0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":0,"pen_gas":67.0,"meses_rec":{},"meses_pen":{"FEB":{"pet":0,"gas":10.0},"MAR":{"pet":0,"gas":25.0},"ABR":{"pet":0,"gas":32.0}}},"has_pet":false,"has_gas":true},"CAMPORREDONDO":{"2025":{"rec_pet":315.0,"rec_gas":0,"pen_pet":70.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":20.0,"gas":0},"FEB":{"pet":65.0,"gas":0},"MAR":{"pet":40.0,"gas":0},"MAY":{"pet":40.0,"gas":0},"JUN":{"pet":20.0,"gas":0},"JUL":{"pet":110.0,"gas":0},"AGO":{"pet":20.0,"gas":0}},"meses_pen":{"AGO":{"pet":30.0,"gas":0},"DIC":{"pet":40.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":105.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":20.0,"gas":0},"FEB":{"pet":20.0,"gas":0},"MAR":{"pet":65.0,"gas":0}}},"has_pet":true,"has_gas":false},"CHUQUIBAMBA":{"2025":{"rec_pet":105.0,"rec_gas":0,"pen_pet":30.0,"pen_gas":0,"meses_rec":{"ABR":{"pet":15.0,"gas":0},"JUN":{"pet":30.0,"gas":0},"JUL":{"pet":15.0,"gas":0},"AGO":{"pet":15.0,"gas":0},"SET":{"pet":30.0,"gas":0}},"meses_pen":{"OCT":{"pet":15.0,"gas":0},"DIC":{"pet":15.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":30.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":15.0,"gas":0},"ABR":{"pet":15.0,"gas":0}}},"has_pet":true,"has_gas":false},"COCABAMBA":{"2025":{"rec_pet":21.0,"rec_gas":21.0,"pen_pet":0,"pen_gas":56.0,"meses_rec":{"MAY":{"pet":0,"gas":21.0},"JUN":{"pet":21.0,"gas":0}},"meses_pen":{"OCT":{"pet":0,"gas":30.0},"NOV":{"pet":0,"gas":26.0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":0,"pen_gas":26.0,"meses_rec":{},"meses_pen":{"FEB":{"pet":0,"gas":26.0}}},"has_pet":true,"has_gas":true},"COCOCHO":{"2025":{"rec_pet":754.0,"rec_gas":0,"pen_pet":133.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":25.0,"gas":0},"FEB":{"pet":102.0,"gas":0},"MAR":{"pet":47.0,"gas":0},"ABR":{"pet":140.0,"gas":0},"MAY":{"pet":70.0,"gas":0},"JUL":{"pet":70.0,"gas":0},"AGO":{"pet":95.0,"gas":0},"SET":{"pet":20.0,"gas":0},"OCT":{"pet":140.0,"gas":0},"NOV":{"pet":45.0,"gas":0}},"meses_pen":{"NOV":{"pet":48.0,"gas":0},"DIC":{"pet":85.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":203.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"FEB":{"pet":20.0,"gas":0},"MAR":{"pet":111.0,"gas":0},"ABR":{"pet":72.0,"gas":0}}},"has_pet":true,"has_gas":false},"COLCAMAR":{"2025":{"rec_pet":81.0,"rec_gas":0,"pen_pet":21.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":16.0,"gas":0},"FEB":{"pet":23.0,"gas":0},"MAR":{"pet":7.0,"gas":0},"ABR":{"pet":7.0,"gas":0},"MAY":{"pet":7.0,"gas":0},"JUL":{"pet":7.0,"gas":0},"AGO":{"pet":14.0,"gas":0}},"meses_pen":{"DIC":{"pet":21.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":56.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":28.0,"gas":0},"MAR":{"pet":14.0,"gas":0},"ABR":{"pet":14.0,"gas":0}}},"has_pet":true,"has_gas":false},"COLLONCE":{"2025":{"rec_pet":480.0,"rec_gas":0,"pen_pet":100.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":100.0,"gas":0},"FEB":{"pet":60.0,"gas":0},"MAR":{"pet":60.0,"gas":0},"ABR":{"pet":40.0,"gas":0},"MAY":{"pet":40.0,"gas":0},"JUN":{"pet":80.0,"gas":0},"JUL":{"pet":60.0,"gas":0},"SET":{"pet":40.0,"gas":0}},"meses_pen":{"OCT":{"pet":80.0,"gas":0},"NOV":{"pet":20.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":200.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":80.0,"gas":0},"FEB":{"pet":60.0,"gas":0},"ABR":{"pet":60.0,"gas":0}}},"has_pet":true,"has_gas":false},"HUAMBO":{"2025":{"rec_pet":114.0,"rec_gas":0,"pen_pet":39.0,"pen_gas":0,"meses_rec":{"FEB":{"pet":3.0,"gas":0},"MAR":{"pet":15.0,"gas":0},"ABR":{"pet":12.0,"gas":0},"MAY":{"pet":3.0,"gas":0},"JUN":{"pet":22.0,"gas":0},"JUL":{"pet":23.0,"gas":0},"AGO":{"pet":3.0,"gas":0},"SET":{"pet":23.0,"gas":0},"OCT":{"pet":10.0,"gas":0}},"meses_pen":{"DIC":{"pet":39.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":66.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":19.0,"gas":0},"FEB":{"pet":26.0,"gas":0},"MAR":{"pet":15.0,"gas":0},"ABR":{"pet":6.0,"gas":0}}},"has_pet":true,"has_gas":false},"JALCA GRANDE":{"2025":{"rec_pet":212.0,"rec_gas":0,"pen_pet":48.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":40.0,"gas":0},"FEB":{"pet":8.0,"gas":0},"MAY":{"pet":32.0,"gas":0},"JUN":{"pet":24.0,"gas":0},"JUL":{"pet":16.0,"gas":0},"AGO":{"pet":24.0,"gas":0},"SET":{"pet":40.0,"gas":0},"OCT":{"pet":16.0,"gas":0},"NOV":{"pet":12.0,"gas":0}},"meses_pen":{"NOV":{"pet":16.0,"gas":0},"DIC":{"pet":32.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":65.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":14.0,"gas":0},"FEB":{"pet":28.0,"gas":0},"MAR":{"pet":15.0,"gas":0},"ABR":{"pet":8.0,"gas":0}}},"has_pet":true,"has_gas":false},"JUMBILLA":{"2025":{"rec_pet":258.0,"rec_gas":0,"pen_pet":17.0,"pen_gas":0,"meses_rec":{"FEB":{"pet":30.0,"gas":0},"MAR":{"pet":72.0,"gas":0},"ABR":{"pet":12.0,"gas":0},"MAY":{"pet":24.0,"gas":0},"JUN":{"pet":24.0,"gas":0},"JUL":{"pet":12.0,"gas":0},"AGO":{"pet":36.0,"gas":0},"SET":{"pet":36.0,"gas":0},"OCT":{"pet":12.0,"gas":0}},"meses_pen":{"NOV":{"pet":12.0,"gas":0},"DIC":{"pet":5.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":63.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":5.0,"gas":0},"FEB":{"pet":29.0,"gas":0},"MAR":{"pet":12.0,"gas":0},"ABR":{"pet":17.0,"gas":0}}},"has_pet":true,"has_gas":false},"LAMUD":{"2025":{"rec_pet":216.0,"rec_gas":0,"pen_pet":28.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":24.0,"gas":0},"FEB":{"pet":12.0,"gas":0},"MAR":{"pet":12.0,"gas":0},"ABR":{"pet":8.0,"gas":0},"MAY":{"pet":36.0,"gas":0},"JUN":{"pet":36.0,"gas":0},"JUL":{"pet":16.0,"gas":0},"AGO":{"pet":16.0,"gas":0},"SET":{"pet":16.0,"gas":0},"OCT":{"pet":32.0,"gas":0},"NOV":{"pet":8.0,"gas":0}},"meses_pen":{"NOV":{"pet":16.0,"gas":0},"DIC":{"pet":12.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":104.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":24.0,"gas":0},"FEB":{"pet":32.0,"gas":0},"MAR":{"pet":16.0,"gas":0},"ABR":{"pet":32.0,"gas":0}}},"has_pet":true,"has_gas":false},"LEYMEBAMBA":{"2025":{"rec_pet":323.5,"rec_gas":0,"pen_pet":42.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":30.0,"gas":0},"FEB":{"pet":30.0,"gas":0},"MAR":{"pet":56.0,"gas":0},"ABR":{"pet":28.0,"gas":0},"MAY":{"pet":30.0,"gas":0},"JUN":{"pet":52.0,"gas":0},"JUL":{"pet":37.5,"gas":0},"AGO":{"pet":37.5,"gas":0},"SET":{"pet":22.5,"gas":0}},"meses_pen":{"OCT":{"pet":15.0,"gas":0},"NOV":{"pet":7.5,"gas":0},"DIC":{"pet":19.5,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":58.5,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":21.0,"gas":0},"FEB":{"pet":15.0,"gas":0},"MAR":{"pet":15.0,"gas":0},"ABR":{"pet":7.5,"gas":0}}},"has_pet":true,"has_gas":false},"LUYA":{"2025":{"rec_pet":316.0,"rec_gas":0,"pen_pet":16.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":28.0,"gas":0},"FEB":{"pet":32.0,"gas":0},"MAR":{"pet":40.0,"gas":0},"JUN":{"pet":20.0,"gas":0},"JUL":{"pet":48.0,"gas":0},"AGO":{"pet":52.0,"gas":0},"SET":{"pet":28.0,"gas":0},"OCT":{"pet":52.0,"gas":0},"NOV":{"pet":16.0,"gas":0}},"meses_pen":{"DIC":{"pet":16.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":68.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"FEB":{"pet":24.0,"gas":0},"MAR":{"pet":12.0,"gas":0},"ABR":{"pet":32.0,"gas":0}}},"has_pet":true,"has_gas":false},"MARIA":{"2025":{"rec_pet":135.0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{"MAR":{"pet":20.0,"gas":0},"MAY":{"pet":25.0,"gas":0},"JUN":{"pet":9.0,"gas":0},"AGO":{"pet":45.0,"gas":0},"SET":{"pet":36.0,"gas":0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":108.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":12.0,"gas":0},"FEB":{"pet":36.0,"gas":0},"MAR":{"pet":60.0,"gas":0}}},"has_pet":true,"has_gas":false},"MARIA AUXILIADORA":{"2025":{"rec_pet":1716.9,"rec_gas":0,"pen_pet":7.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":138.0,"gas":0},"FEB":{"pet":135.0,"gas":0},"MAR":{"pet":142.0,"gas":0},"ABR":{"pet":196.0,"gas":0},"MAY":{"pet":153.0,"gas":0},"JUN":{"pet":145.9,"gas":0},"JUL":{"pet":139.4,"gas":0},"AGO":{"pet":146.0,"gas":0},"SET":{"pet":175.5,"gas":0},"OCT":{"pet":123.9,"gas":0},"NOV":{"pet":103.9,"gas":0},"DIC":{"pet":118.3,"gas":0}},"meses_pen":{"ABR":{"pet":7.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":611.7,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":144.55,"gas":0},"FEB":{"pet":124.09,"gas":0},"MAR":{"pet":177.66,"gas":0},"ABR":{"pet":165.4,"gas":0}}},"has_pet":true,"has_gas":false},"MARISCAL BENAVIDES":{"2025":{"rec_pet":10.0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{"OCT":{"pet":10.0,"gas":0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{},"meses_pen":{}},"has_pet":true,"has_gas":false},"MOLINOPAMPA":{"2025":{"rec_pet":0,"rec_gas":168.0,"pen_pet":0,"pen_gas":32.0,"meses_rec":{"ENE":{"pet":0,"gas":32.0},"FEB":{"pet":0,"gas":8.0},"MAR":{"pet":0,"gas":16.0},"ABR":{"pet":0,"gas":16.0},"MAY":{"pet":0,"gas":32.0},"JUN":{"pet":0,"gas":8.0},"JUL":{"pet":0,"gas":24.0},"AGO":{"pet":0,"gas":16.0},"SET":{"pet":0,"gas":16.0}},"meses_pen":{"DIC":{"pet":0,"gas":32.0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":0,"pen_gas":48.0,"meses_rec":{},"meses_pen":{"ENE":{"pet":0,"gas":24.0},"MAR":{"pet":0,"gas":16.0},"ABR":{"pet":0,"gas":8.0}}},"has_pet":false,"has_gas":true},"NUEVO CHIRIMOTO":{"2025":{"rec_pet":190.0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{"MAR":{"pet":20.0,"gas":0},"ABR":{"pet":30.0,"gas":0},"MAY":{"pet":30.0,"gas":0},"JUN":{"pet":10.0,"gas":0},"JUL":{"pet":50.0,"gas":0},"AGO":{"pet":50.0,"gas":0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":50.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"MAR":{"pet":30.0,"gas":0},"ABR":{"pet":20.0,"gas":0}}},"has_pet":true,"has_gas":false},"OCALLI":{"2025":{"rec_pet":148.0,"rec_gas":60.0,"pen_pet":0,"pen_gas":0,"meses_rec":{"ENE":{"pet":30.0,"gas":0},"FEB":{"pet":68.0,"gas":0},"MAR":{"pet":30.0,"gas":0},"ABR":{"pet":0,"gas":60.0},"MAY":{"pet":20.0,"gas":0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":208.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":40.0,"gas":0},"FEB":{"pet":46.0,"gas":0},"MAR":{"pet":102.0,"gas":0},"ABR":{"pet":20.0,"gas":0}}},"has_pet":true,"has_gas":true},"OMIA":{"2025":{"rec_pet":138.0,"rec_gas":0,"pen_pet":40.0,"pen_gas":0,"meses_rec":{"FEB":{"pet":3.0,"gas":0},"MAR":{"pet":4.0,"gas":0},"ABR":{"pet":16.0,"gas":0},"MAY":{"pet":3.0,"gas":0},"JUN":{"pet":22.0,"gas":0},"JUL":{"pet":23.0,"gas":0},"AGO":{"pet":29.0,"gas":0},"SET":{"pet":16.0,"gas":0},"OCT":{"pet":16.0,"gas":0},"NOV":{"pet":6.0,"gas":0}},"meses_pen":{"SET":{"pet":20.0,"gas":0},"NOV":{"pet":10.0,"gas":0},"DIC":{"pet":10.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":49.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"FEB":{"pet":33.0,"gas":0},"MAR":{"pet":16.0,"gas":0}}},"has_pet":true,"has_gas":false},"PEDRO RUIZ GALLO":{"2025":{"rec_pet":280.0,"rec_gas":363.0,"pen_pet":45.0,"pen_gas":18.0,"meses_rec":{"ENE":{"pet":6.0,"gas":66.0},"FEB":{"pet":24.0,"gas":42.0},"MAR":{"pet":18.0,"gas":105.0},"ABR":{"pet":42.0,"gas":18.0},"MAY":{"pet":25.0,"gas":18.0},"JUN":{"pet":30.0,"gas":30.0},"JUL":{"pet":5.0,"gas":18.0},"AGO":{"pet":30.0,"gas":12.0},"SET":{"pet":35.0,"gas":12.0},"OCT":{"pet":50.0,"gas":24.0},"NOV":{"pet":15.0,"gas":18.0}},"meses_pen":{"NOV":{"pet":20.0,"gas":6.0},"DIC":{"pet":25.0,"gas":12.0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":151.0,"pen_gas":66.0,"meses_rec":{},"meses_pen":{"ENE":{"pet":35.0,"gas":12.0},"FEB":{"pet":61.0,"gas":18.0},"MAR":{"pet":40.0,"gas":36.0},"ABR":{"pet":15.0,"gas":0}}},"has_pet":true,"has_gas":true},"POMACOCHAS":{"2025":{"rec_pet":829.0,"rec_gas":0,"pen_pet":84.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":80.0,"gas":0},"FEB":{"pet":8.0,"gas":0},"MAR":{"pet":72.0,"gas":0},"ABR":{"pet":40.0,"gas":0},"MAY":{"pet":128.0,"gas":0},"JUN":{"pet":72.0,"gas":0},"JUL":{"pet":130.0,"gas":0},"AGO":{"pet":96.0,"gas":0},"SET":{"pet":88.0,"gas":0},"OCT":{"pet":75.0,"gas":0},"NOV":{"pet":40.0,"gas":0}},"meses_pen":{"NOV":{"pet":36.0,"gas":0},"DIC":{"pet":48.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":300.0,"pen_gas":41.0,"meses_rec":{},"meses_pen":{"ENE":{"pet":66.0,"gas":0},"FEB":{"pet":66.0,"gas":0},"MAR":{"pet":78.0,"gas":41.0},"ABR":{"pet":90.0,"gas":0}}},"has_pet":true,"has_gas":true},"SALAZAR":{"2025":{"rec_pet":0,"rec_gas":190.0,"pen_pet":0,"pen_gas":34.0,"meses_rec":{"MAR":{"pet":0,"gas":34.0},"ABR":{"pet":0,"gas":68.0},"MAY":{"pet":0,"gas":14.0},"SET":{"pet":0,"gas":40.0},"OCT":{"pet":0,"gas":34.0}},"meses_pen":{"DIC":{"pet":0,"gas":34.0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":0,"pen_gas":84.0,"meses_rec":{},"meses_pen":{"FEB":{"pet":0,"gas":84.0}}},"has_pet":false,"has_gas":true},"SANTO TOMAS":{"2025":{"rec_pet":232.0,"rec_gas":0,"pen_pet":30.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":70.0,"gas":0},"FEB":{"pet":40.0,"gas":0},"MAR":{"pet":30.0,"gas":0},"ABR":{"pet":20.0,"gas":0},"MAY":{"pet":10.0,"gas":0},"OCT":{"pet":62.0,"gas":0}},"meses_pen":{"DIC":{"pet":30.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":94.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":20.0,"gas":0},"FEB":{"pet":30.0,"gas":0},"MAR":{"pet":44.0,"gas":0}}},"has_pet":true,"has_gas":false},"TINGO":{"2025":{"rec_pet":396.0,"rec_gas":0,"pen_pet":50.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":30.0,"gas":0},"FEB":{"pet":20.0,"gas":0},"MAR":{"pet":35.0,"gas":0},"ABR":{"pet":45.0,"gas":0},"MAY":{"pet":63.0,"gas":0},"JUN":{"pet":20.0,"gas":0},"JUL":{"pet":78.0,"gas":0},"AGO":{"pet":65.0,"gas":0},"SET":{"pet":15.0,"gas":0},"OCT":{"pet":25.0,"gas":0}},"meses_pen":{"NOV":{"pet":10.0,"gas":0},"DIC":{"pet":40.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":85.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":25.0,"gas":0},"FEB":{"pet":10.0,"gas":0},"MAR":{"pet":25.0,"gas":0},"ABR":{"pet":25.0,"gas":0}}},"has_pet":true,"has_gas":false},"TOTORA":{"2025":{"rec_pet":28.0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{"MAR":{"pet":28.0,"gas":0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":71.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":36.0,"gas":0},"MAR":{"pet":23.0,"gas":0},"ABR":{"pet":12.0,"gas":0}}},"has_pet":true,"has_gas":false},"YAMBRASBAMBA":{"2025":{"rec_pet":8.0,"rec_gas":0,"pen_pet":29.0,"pen_gas":0,"meses_rec":{"FEB":{"pet":8.0,"gas":0}},"meses_pen":{"JUL":{"pet":4.0,"gas":0},"AGO":{"pet":4.0,"gas":0},"OCT":{"pet":17.0,"gas":0},"NOV":{"pet":4.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":32.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":12.0,"gas":0},"MAR":{"pet":8.0,"gas":0},"ABR":{"pet":12.0,"gas":0}}},"has_pet":true,"has_gas":false},"YERBABUENA":{"2025":{"rec_pet":232.0,"rec_gas":0,"pen_pet":43.0,"pen_gas":0,"meses_rec":{"ENE":{"pet":32.0,"gas":0},"FEB":{"pet":32.0,"gas":0},"MAR":{"pet":30.0,"gas":0},"ABR":{"pet":24.0,"gas":0},"MAY":{"pet":12.0,"gas":0},"JUN":{"pet":36.0,"gas":0},"JUL":{"pet":18.0,"gas":0},"AGO":{"pet":30.0,"gas":0},"SET":{"pet":18.0,"gas":0}},"meses_pen":{"OCT":{"pet":7.0,"gas":0},"DIC":{"pet":36.0,"gas":0}}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":127.0,"pen_gas":0,"meses_rec":{},"meses_pen":{"ENE":{"pet":14.0,"gas":0},"FEB":{"pet":30.0,"gas":0},"MAR":{"pet":51.0,"gas":0},"ABR":{"pet":32.0,"gas":0}}},"has_pet":true,"has_gas":false},"ZARUMILLA":{"2025":{"rec_pet":48.0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{"ENE":{"pet":24.0,"gas":0},"FEB":{"pet":18.0,"gas":0},"MAR":{"pet":6.0,"gas":0}},"meses_pen":{}},"2026":{"rec_pet":0,"rec_gas":0,"pen_pet":0,"pen_gas":0,"meses_rec":{},"meses_pen":{}},"has_pet":true,"has_gas":false}};
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQj7nJAnEUpEt-vOfiTZMG1O_JvsUfCznY_oVxcPv1AGi2CEM7gWnp3uZsp3Ja4_u2vQg8Go0xr1M86/pub?gid=395682171&single=true&output=csv";
 const IPRESS = ["BUENOS AIRES","CAMPORREDONDO","CHUQUIBAMBA","COCABAMBA","COCOCHO","COLCAMAR","COLLONCE","HUAMBO","JALCA GRANDE","JUMBILLA","LAMUD","LEYMEBAMBA","LUYA","MARIA","MARIA AUXILIADORA","MARISCAL BENAVIDES","MOLINOPAMPA","NUEVO CHIRIMOTO","OCALLI","OMIA","PEDRO RUIZ GALLO","POMACOCHAS","SALAZAR","SANTO TOMAS","TINGO","TOTORA","YAMBRASBAMBA","YERBABUENA","ZARUMILLA"];
-
-let sel = null, idx = -1, currentYear = 2026;
 
 const NOMBRES_MES = {
   ENE:'Ene',FEB:'Feb',MAR:'Mar',ABR:'Abr',
@@ -246,6 +248,97 @@ const NOMBRES_MES = {
   SET:'Set',OCT:'Oct',NOV:'Nov',DIC:'Dic'
 };
 const ORDEN_MES = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SET','OCT','NOV','DIC'];
+
+let DATA = {};  // se llena después de cargar el CSV
+let sel = null, idx = -1, currentYear = 2026;
+
+// ── PARSE CSV ─────────────────────────────────────────────────
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cur = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], n = text[i+1];
+    if (inQuotes) {
+      if (c === '"' && n === '"') { cur += '"'; i++; }
+      else if (c === '"') inQuotes = false;
+      else cur += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(cur); cur = ''; }
+      else if (c === '\r') { /* skip */ }
+      else if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; }
+      else cur += c;
+    }
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  return rows;
+}
+
+// ── CARGAR DATOS DE GOOGLE SHEETS ─────────────────────────────
+async function cargar() {
+  document.getElementById('loading').classList.remove('hidden');
+  document.getElementById('error').classList.add('hidden');
+  document.getElementById('card-buscar').classList.add('hidden');
+
+  try {
+    const url = CSV_URL + '&_=' + Date.now();  // anti-cache
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const text = await resp.text();
+    const rows = parseCSV(text);
+
+    // Saltar header (fila 0). Columnas:
+    // 0=MES, 1=IPRESS (destino), 2=AFIL, 3=DOC, 4=FECHA, 5=TIPO,
+    // 6=GAL, 7=SOL, 8=COND, 9=PLACA, 10=DEVA, 11=IPORG, 12=OFICIO, 13=ESTADO, 14=AÑO
+    DATA = {};
+    let total = 0;
+    for (let i = 1; i < rows.length; i++) {
+      const c = rows[i];
+      if (!c || c.length < 14) continue;
+      const eess = (c[1] || '').trim().toUpperCase();
+      const tipo = (c[5] || '').trim().toUpperCase();
+      const gal = parseFloat((c[6] || '0').toString().replace(',', '.')) || 0;
+      const estado = (c[13] || '').trim().toUpperCase();
+      const year = parseInt((c[14] || '').trim()) || 0;
+      const mes3 = (c[0] || '').trim().toUpperCase().substring(0, 3);
+
+      if (!eess || !gal || !year) continue;
+      if (tipo !== 'PETROLEO' && tipo !== 'GASOLINA') continue;
+
+      if (!DATA[eess]) {
+        DATA[eess] = {
+          2025: {rec_pet:0,rec_gas:0,pen_pet:0,pen_gas:0,meses_rec:{},meses_pen:{}},
+          2026: {rec_pet:0,rec_gas:0,pen_pet:0,pen_gas:0,meses_rec:{},meses_pen:{}},
+          has_pet: false, has_gas: false
+        };
+      }
+      if (!DATA[eess][year]) continue;
+
+      const tipoKey = tipo === 'PETROLEO' ? 'pet' : 'gas';
+      const clave = estado === 'RECOGIDO' ? 'rec' : 'pen';
+      DATA[eess][year][clave + '_' + tipoKey] += gal;
+      DATA[eess]['has_' + tipoKey] = true;
+
+      const mesesKey = 'meses_' + clave;
+      if (!DATA[eess][year][mesesKey][mes3]) {
+        DATA[eess][year][mesesKey][mes3] = {pet:0, gas:0};
+      }
+      DATA[eess][year][mesesKey][mes3][tipoKey] += gal;
+      total++;
+    }
+
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('card-buscar').classList.remove('hidden');
+    const now = new Date();
+    document.getElementById('actualiz').textContent =
+      `Última actualización: ${now.toLocaleDateString('es-PE')} ${now.toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})} · ${total} registros`;
+  } catch (e) {
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('error').classList.remove('hidden');
+    document.getElementById('error-msg').textContent =
+      'Error al cargar: ' + e.message + '. Verifica tu conexión.';
+  }
+}
 
 // ── BUSCADOR ──────────────────────────────────────────────────
 function filtrar() {
@@ -298,7 +391,7 @@ document.addEventListener('click', e => {
     document.getElementById('sugs').classList.add('hidden');
 });
 
-// ── MOSTRAR RESULTADO ─────────────────────────────────────────
+// ── MOSTRAR ───────────────────────────────────────────────────
 function ver() {
   if (!sel) return;
   document.getElementById('r-ipress').textContent = sel;
@@ -318,11 +411,12 @@ function changeYear(y) {
 
 function render() {
   if (!sel) return;
-  const d = DATA[sel];
-  if (!d) return;
-  const yearData = d[String(currentYear)] || d[currentYear];
-  if (!yearData) return;
-
+  const d = DATA[sel] || {
+    2025: {rec_pet:0,rec_gas:0,pen_pet:0,pen_gas:0,meses_rec:{},meses_pen:{}},
+    2026: {rec_pet:0,rec_gas:0,pen_pet:0,pen_gas:0,meses_rec:{},meses_pen:{}},
+    has_pet: false, has_gas: false
+  };
+  const yearData = d[currentYear];
   const totRec = (yearData.rec_pet || 0) + (yearData.rec_gas || 0);
   const totPen = (yearData.pen_pet || 0) + (yearData.pen_gas || 0);
 
@@ -341,7 +435,6 @@ function render() {
 
   let html = '';
 
-  // PETRÓLEO
   if (d.has_pet) {
     const recPet = yearData.rec_pet || 0;
     const penPet = yearData.pen_pet || 0;
@@ -351,18 +444,12 @@ function render() {
           <div class="ttit">🛢 PETRÓLEO</div>
           <div class="ttot">${f(recPet + penPet)} gal</div>
         </div>`;
-
-      // Recogidos
       html += renderSection('rec', '✅ Recogidos (con oficio)', recPet, 'pet', yearData.meses_rec);
-
-      // Pendientes
       html += renderSection('pen', '⏳ Por recoger (sin oficio)', penPet, 'pet', yearData.meses_pen);
-
       html += `</div>`;
     }
   }
 
-  // GASOLINA
   if (d.has_gas) {
     const recGas = yearData.rec_gas || 0;
     const penGas = yearData.pen_gas || 0;
@@ -372,10 +459,8 @@ function render() {
           <div class="ttit">⛽ GASOLINA</div>
           <div class="ttot">${f(recGas + penGas)} gal</div>
         </div>`;
-
       html += renderSection('rec', '✅ Recogidos (con oficio)', recGas, 'gas', yearData.meses_rec);
       html += renderSection('pen', '⏳ Por recoger (sin oficio)', penGas, 'gas', yearData.meses_pen);
-
       html += `</div>`;
     }
   }
@@ -390,13 +475,9 @@ function renderSection(cls, titulo, total, tipoKey, meses) {
       <div class="empty-sec">Sin movimientos</div>
     </div>`;
   }
-
   const chipClass = cls === 'rec' ? 'has-rec' : 'has-pen';
-
-  // Mostrar chips de meses con valores
   let chipsHtml = '';
   const mesesConDatos = ORDEN_MES.filter(m => meses[m] && (meses[m][tipoKey] || 0) > 0);
-
   if (mesesConDatos.length === 0) {
     chipsHtml = `<div class="empty-sec">Sin desglose mensual</div>`;
   } else {
@@ -408,7 +489,6 @@ function renderSection(cls, titulo, total, tipoKey, meses) {
         </div>`).join('') +
       `</div>`;
   }
-
   return `<div class="subsec">
     <div class="stit ${cls}">${titulo}<span class="badge-n">${f(total)} gal</span></div>
     ${chipsHtml}
@@ -431,10 +511,8 @@ function f(n) {
   return Number(n).toLocaleString('es-PE', { minimumFractionDigits:2, maximumFractionDigits:2 });
 }
 
-// Set fecha
-const now = new Date();
-document.getElementById('actualiz').textContent =
-  `Última actualización: ${now.toLocaleDateString('es-PE')} ${now.toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})}`;
+// Inicializar
+cargar();
 </script>
 </body>
 </html>
